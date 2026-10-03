@@ -1,0 +1,11 @@
+A requirement describes what the user needs to achieve.
+
+First, define the user’s context. Then discuss the specific features.
+
+A requirement should describe an observable outcome.
+
+Acceptance criteria must be clear enough to check.
+
+A successful test needs evidence, not only a completion message.
+
+Record the actual test results, and explain which conditions have not been covered.
