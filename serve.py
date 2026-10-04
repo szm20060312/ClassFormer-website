@@ -58,8 +58,11 @@ class PreviewHandler(SimpleHTTPRequestHandler):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--directory", type=Path, default=None)
     args = parser.parse_args()
-    handler = partial(PreviewHandler, directory=str(Path(__file__).resolve().parent))
+    source = Path(__file__).resolve().parent
+    source = args.directory or (source / "dist" if (source / "dist").is_dir() else source)
+    handler = partial(PreviewHandler, directory=str(source.resolve()))
     with ThreadingHTTPServer(("127.0.0.1", args.port), handler) as server:
         print(f"ClassFormer preview: http://127.0.0.1:{args.port}/", flush=True)
         try:

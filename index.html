@@ -29,8 +29,8 @@
 <div class="hero-visual">
 <div class="visual-topline"><span class="mono">CLASS / CONTEXT / CLARITY</span><span class="window-mark" aria-hidden="true">↗</span></div>
 <div class="lecture-window">
-<div class="window-head"><span class="head-label"><span class="sound-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="lectureSample">课堂片段示意</span></span><span class="mono muted">00:08</span></div>
-<div class="sample-slide"><p class="mono slide-overline">SOFTWARE ENGINEERING / 02</p><h2 data-i18n="sampleSlideTitle" lang="en">Make requirements verifiable</h2><div class="slide-rule"></div><p class="slide-quote">“A requirement should describe an observable outcome.”</p><div class="slide-keywords"><span>Requirement</span><span>Outcome</span><span>Evidence</span></div><span class="slide-page mono">02 / 03</span></div>
+<div class="window-head"><span class="head-label"><span class="sound-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="lectureSample">课堂片段示意</span></span><span class="mono muted">00:42</span></div>
+<div class="sample-slide"><p class="mono slide-overline">SOFTWARE ENGINEERING / 02</p><h2 data-i18n="sampleSlideTitle">让需求可以被验证</h2><div class="slide-rule"></div><p class="slide-quote">“A requirement should describe an observable outcome.”</p><div class="slide-keywords"><span>Requirement</span><span>Outcome</span><span>Evidence</span></div><span class="slide-page mono">02 / 03</span></div>
 <div class="floating-translation"><span class="translation-label mono">EN → 中文</span><p data-i18n="heroTranslation">需求应该描述一个可观察的结果。</p><span class="translation-source" data-i18n="slideLinked">对应课件 · 第 2 页</span></div>
 <div class="sample-note"><span class="bookmark-mark" aria-hidden="true">?</span><div><strong data-i18n="heroQuestion">这里没听明白？</strong><span data-i18n="heroQuestionHint">留下标记，课后回到这一刻。</span></div></div>
 </div>
@@ -48,32 +48,47 @@
 </section>
 
 <section class="experience section-shell" id="experience" aria-labelledby="experience-heading">
-<div class="section-intro"><div><span class="section-index mono">02 / EXPERIENCE</span><h2 id="experience-heading" data-i18n="experienceTitle">一节课，从听到理解。</h2></div><p data-i18n="experienceIntro">播放全英文讲课音频，查看同步的英文课件与中文字幕，再标记疑问、用关键词回听讲述。以下是预设内容的概念演示。</p></div>
-<div class="demo-surface">
-<div class="demo-toolbar"><div class="demo-title"><span class="doc-icon" aria-hidden="true">▤</span><div><strong data-i18n="demoCourse" lang="en">Software Engineering · Requirements & acceptance</strong><span data-i18n="demoStatus">全英文授课 · 音频与字幕同步</span></div></div><div class="demo-controls"><button class="secondary-button" id="demo-reset" type="button" data-i18n="reset">重置</button><button class="button button-small" id="demo-play" type="button" data-i18n="play">播放演示</button></div></div>
-<div class="demo-audio"><span class="demo-audio-label" data-i18n="audioLabel">示例讲课音频</span><audio id="demo-audio" controls preload="metadata" aria-label="示例讲课音频"><source src="./assets/classroom-demo.m4a" type="audio/mp4"></audio></div>
-<div class="demo-layout">
-<section class="courseware-panel" aria-label="课件示意">
-<div class="panel-label"><span data-i18n="courseware">课件</span><span id="page-label" class="mono">01 / 03</span></div>
+<div class="section-intro"><div><span class="section-index mono">02 / EXPERIENCE</span><h2 id="experience-heading" data-i18n="experienceTitle">跟着声音听课，带着疑问回看。</h2></div><p data-i18n="experienceIntro">点击“开始上课”，听老师讲述，看双语字幕逐步出现、课件自动跟随。没听懂时留下疑问，课后回到那一刻。</p></div>
+<div class="demo-surface demo-workspace">
+<div class="demo-toolbar"><div class="demo-title"><span class="workspace-logo" aria-hidden="true">CF</span><div><strong data-i18n="demoCourse">软件工程 · 需求与验收</strong><span data-i18n="demoStatus">英文授课 · 23 秒音频课堂</span></div></div><div class="demo-controls"><button class="secondary-button" id="demo-reset" type="button" data-i18n="reset">重新开始</button><button class="secondary-button" id="demo-end" type="button" data-i18n="finishClass" hidden>结束上课</button><button class="button button-small" id="demo-play" type="button" data-i18n="play">开始上课</button></div></div>
+<div class="class-journey" aria-label="体验流程"><span class="journey-step active" id="journey-listen"><span class="mono">01</span><span data-i18n="journeyListen">听课与理解</span></span><span class="journey-step" id="journey-mark"><span class="mono">02</span><span data-i18n="journeyMark">标记没听懂的地方</span></span><span class="journey-step" id="journey-review"><span class="mono">03</span><span data-i18n="journeyReview">课后回听与定位</span></span></div>
+<div class="audio-transport"><div class="audio-state"><span class="status-dot" aria-hidden="true"></span><strong id="class-status" role="status">准备上课</strong><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div><div class="audio-progress"><span id="audio-elapsed" class="mono">00:00</span><label class="visually-hidden" for="audio-seek" data-i18n="audioSeek">课堂音频进度</label><input type="range" id="audio-seek" min="0" max="23.35" step="0.05" value="0" disabled><span id="audio-duration" class="mono">00:23</span></div><button type="button" id="audio-mute" class="audio-mute" data-i18n="muteAudio">静音</button></div>
+<audio id="demo-audio" preload="auto"><source src="./assets/classroom-demo.m4a" type="audio/mp4"></audio>
+<p class="audio-error" id="audio-error" role="alert" hidden></p>
+<div class="workspace-path"><span class="workspace-path-label" data-i18n="segmentPicker">选择课堂片段</span><div id="segment-timeline" class="segment-timeline" aria-label="课堂片段"></div></div>
+<div class="workspace-columns">
+<section class="context-panel" aria-label="片段与课件">
+<div id="selected-segment" class="selected-segment" tabindex="-1">
+<div class="selected-topline"><span class="selected-label" data-i18n="selectedSpeech">正在讲述</span><span class="mono" id="demo-clock">00:00</span><span id="language-kind" class="language-kind"></span></div>
+<p id="selected-original" class="selected-original" lang="en"></p>
+<div class="translation-result"><span class="translation-result-label" data-i18n="translationLabel">中文理解</span><p id="selected-translation" lang="zh-CN"></p></div>
+<div class="selected-actions"><span id="selected-bookmarks" class="selected-bookmarks"></span><button class="mark-button" id="mark-question" type="button" disabled><span aria-hidden="true">＋</span><span data-i18n="markQuestion">这里没听懂</span></button></div>
+</div>
+<div class="association-strip" id="association-strip"><div><span class="association-symbol" aria-hidden="true">↳</span><strong id="association-title"></strong></div><p id="association-reason"></p><button id="auto-page" class="auto-button" type="button" data-i18n="restoreAuto">恢复片段关联</button></div>
+<div class="courseware-panel">
+<div class="panel-label"><span data-i18n="courseware">相关课件 · 3 页示例</span><span id="page-label" class="mono">02 / 03</span></div>
 <div class="demo-slide" id="demo-slide"></div>
-<div class="page-controls"><button id="page-prev" type="button" aria-label="上一页">‹</button><span id="page-mode" data-i18n="autoLinked">自动关联</span><button id="page-next" type="button" aria-label="下一页">›</button><button id="auto-page" class="auto-button" type="button" data-i18n="restoreAuto">恢复自动</button></div>
-<p class="demo-small" data-i18n="coursewareHint">示例自动关联由预设片段驱动；可手动选择页面。</p>
-</section>
-<section class="transcript-panel" aria-label="双语字幕示意">
-<div class="panel-label"><span data-i18n="transcript">英文原文与中文译文</span><span id="demo-clock" class="mono">00:00</span></div>
-<div class="transcript-list" id="transcript-list" aria-live="polite"></div>
-<div class="transcript-actions"><label class="text-toggle"><input id="original-toggle" type="checkbox" checked><span data-i18n="showOriginal">显示原文</span></label><button class="mark-button" id="mark-question" type="button"><span aria-hidden="true">＋</span><span data-i18n="markQuestion">标记疑问</span></button></div>
-</section>
-</div>
-<div class="review-bar">
-<div class="search-control"><label class="visually-hidden" for="demo-search" data-i18n="searchLabel">搜索示例课堂记录</label><span aria-hidden="true">⌕</span><input id="demo-search" type="search" data-placeholder-zh="输入 requirement、验收、测试…" data-placeholder-en="Search requirement, acceptance, test…" placeholder="输入 requirement、验收、测试…"><button id="search-clear" type="button" aria-label="清除搜索" hidden>×</button></div>
-<div class="demo-review-actions"><button id="export-demo" class="secondary-button" type="button" data-i18n="exportSample">导出示例文字</button><span class="mono" id="note-count">0</span><span data-i18n="questionCount">个疑问</span></div>
-</div>
-<div id="search-results" class="search-results" aria-live="polite" hidden></div>
-<div id="question-list" class="question-list" aria-live="polite"><p class="empty-note" data-i18n="emptyQuestions">标记一个疑问，就能从这里回到对应片段。</p></div>
-<p class="demo-disclaimer" data-i18n="demoDisclaimer">示例音频来自提供的录屏，字幕与课件按预设时间点同步。尚未连接语音识别、实时翻译或课件匹配服务。</p>
+<div class="slide-navigation"><button id="page-prev" type="button" aria-label="上一页">‹</button><div id="slide-thumbnails" class="slide-thumbnails" aria-label="课件页"></div><button id="page-next" type="button" aria-label="下一页">›</button></div>
+<div class="page-mode-line"><span id="page-mode">自动关联</span><span data-i18n="manualHint">也可以直接选择课件页</span></div>
 </div>
 </section>
+<section class="record-panel" aria-label="课堂记录与疑问">
+<div class="record-tabs" role="tablist" aria-label="课堂记录类型">
+<button id="transcript-tab" type="button" role="tab" aria-selected="true" aria-controls="transcript-list"><span data-i18n="recordTab">课堂记录</span><span class="count-pill" id="record-count">0</span></button>
+<button id="questions-tab" type="button" role="tab" aria-selected="false" aria-controls="question-list" tabindex="-1"><span data-i18n="questionsTab">我的疑问</span><span class="count-pill" id="note-count">0</span></button>
+</div>
+<div class="record-search"><label class="visually-hidden" for="demo-search" data-i18n="searchLabel">搜索课堂记录或疑问</label><span aria-hidden="true">⌕</span><input id="demo-search" type="search" data-placeholder-zh="搜索关键词：验收、requirement…" data-placeholder-en="Search: acceptance, requirement…" placeholder="搜索关键词：验收、requirement…"><button id="search-clear" type="button" aria-label="清除搜索" hidden>×</button></div>
+<div class="record-list-head"><span id="results-count" role="status"></span><label class="text-toggle" id="original-toggle-label"><input id="original-toggle" type="checkbox" checked><span data-i18n="showOriginal">原文</span></label></div>
+<div class="transcript-list" id="transcript-list" role="tabpanel" aria-labelledby="transcript-tab"></div>
+<div id="question-list" class="question-list" role="tabpanel" aria-labelledby="questions-tab" hidden></div>
+<div class="record-footer"><span data-i18n="recordHint">点击任意记录，定位译文与课件</span><button id="export-demo" class="secondary-button" type="button" data-i18n="exportSample">导出示例记录</button></div>
+</section>
+</div>
+<div class="demo-outcome" role="status" aria-live="polite"><span class="outcome-line" aria-hidden="true"></span><p id="demo-outcome-text"></p></div>
+<p class="demo-disclaimer" data-i18n="demoDisclaimer">使用仓库中的真实音频播放。字幕与课件按预设时间同步，用于体验产品流程；语音识别、实时翻译与自动匹配服务尚未接入。</p>
+</div>
+</section>
+
 
 <section class="features section-shell" id="features" aria-labelledby="features-heading">
 <div class="section-intro"><div><span class="section-index mono">03 / PRODUCT SCOPE</span><h2 id="features-heading" data-i18n="featuresTitle">把一节课连起来。</h2></div><p data-i18n="featuresIntro">首版围绕收音、理解、定位与回溯形成完整流程。输入是老师的课件和电脑麦克风声音。</p></div>
